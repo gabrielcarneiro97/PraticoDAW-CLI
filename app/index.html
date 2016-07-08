@@ -21,5 +21,15 @@
     <script src="assets/pratico-daw-cli.js"></script>
 
     {{content-for "body-footer"}}
+
+    <script type="text/javascript">
+        (function($){
+          $(function(){
+            $('.parallax').parallax();
+            $('.modal-trigger').leanModal();
+            $(".dropdown-button").dropdown();
+          }); // end of document ready
+        })(jQuery); // end of jQuery name space
+      </script>
   </body>
 </html>
