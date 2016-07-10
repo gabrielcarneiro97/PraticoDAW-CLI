@@ -6,13 +6,15 @@
       </div>
       <div class="row center white z-depth-2">
         <div class="input-field col s12">
-          <input placeholder="Busque aqui" id="search" type="text">
+          {{input placeholder="Busque aqui" value=search type="text"}}
         </div>
       </div>
       <div class="row center" style=" margin-top: -1%;">
-        <div class="btn-large blue lighten-2 col s2 offset-s5">
-          Buscar
-        </div>
+        {{#link-to "busca"}}
+          <button {{action "buscar"}} class="btn-large blue lighten-2 col s2 offset-s5">
+            Buscar
+          </button>
+        {{/link-to}}
       </div>
     </div>
     <img src="assets/images/drawing.svg" alt="" class="buildings"/>

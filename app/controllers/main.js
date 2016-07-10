@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  searchIn: "zzz",
+  searchIn: null,
   actions: {
     buscar(){
       this.searchIn = this.search;
