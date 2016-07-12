@@ -27,7 +27,18 @@ footer.page-footer {
   color: #64B5F6;
 }
 
+.drop-item {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
 .input-field input[type=text]:focus {
+  border-bottom: 1px solid #8cb1d9;
+  box-shadow: 0 1px 0 0 #8cb1d9;
+}
+
+.input-field input[type=email]:focus {
   border-bottom: 1px solid #8cb1d9;
   box-shadow: 0 1px 0 0 #8cb1d9;
 }

@@ -2,20 +2,17 @@ import Ember from 'ember';
 
 var sHost = "http://localhost:8000"; //Host do servidor
 
-var post = function(obj, url){
-  var request = Ember.$.ajax({
+var post = function(obj, url, callback200){
+  Ember.$.ajax({
     type        : 'POST',
     url         : sHost + url,
     dataType    : 'json',
     data        : JSON.stringify(obj),
     processData : false,
-    contentType : 'application/json'
-  });
-  request.done(function(msg) {
-    console.log(msg);
-  });
-  request.fail(function(jqXHR, textStatus) {
-    console.log('Request failed: ' + textStatus);
+    contentType : 'application/json',
+    statusCode: {
+      200: callback200()
+    }
   });
 };
 
@@ -23,8 +20,14 @@ var post = function(obj, url){
 
 export default Ember.Controller.extend({
   actions: {
+    changeGender(gen){
+      // this.model.gender = gen;
+      Ember.set(this.model, 'gender', gen);
+    },
     register(){
+      var self = this;
       var inputs = this.model;
+
       var count = 0;
       for (var type in inputs) {
         if(type == null || type == ''){
@@ -56,7 +59,7 @@ export default Ember.Controller.extend({
       var user =  {
         primeiroNome : inputs.name,
         sobreNome    : inputs.surname,
-        tipoSexo     : inputs.sex,
+        tipoSexo     : inputs.gender,
         pais         : inputs.country,
         estado       : inputs.state,
         cidade       : inputs.city,
@@ -65,7 +68,11 @@ export default Ember.Controller.extend({
         senha        : inputs.passwd
       };
 
-      post(user, '/cadastro');
+      post(user, '/cadastro', function(){
+        self.transitionToRoute('main');
+        Materialize.toast("Cadastro efetuado com sucesso", 2000);
+
+      });
 
     }
   }
