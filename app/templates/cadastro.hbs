@@ -7,26 +7,42 @@
       <div class="row center">
         <div class="white z-depth-3 col s12 m10 offset-m1" style="margin-bottom:20%;">
           <div class="input-field col s12 m6">
-            {{input value=name placeholder="Nome Completo" type="text"}}
+            {{input value=model.name placeholder="Primeiro Nome" type="text"}}
           </div>
           <div class="input-field col s12 m6">
-            {{input value=address placeholder="Endereço" type="text"}}
+            {{input value=model.surname placeholder="Segundo Nome" type="text"}}
           </div>
-          <div class="input-field col s12 m6">
-            {{input placeholder="Email" value=email type="text"}}
-          </div>
-          <div class="input-field col s12 m6">
-            {{input placeholder="Repetir Email" value=emailrpt type="text"}}
+
+          <div class="input-field col s12 m12">
+            {{input placeholder="Sexo" value=model.sex type="text"}}
           </div>
 
           <div class="input-field col s12 m4">
-            {{input placeholder="Login" value=login type="text"}}
+            {{input placeholder="País" value=model.country type="text"}}
           </div>
           <div class="input-field col s12 m4">
-            {{input placeholder="Senha" value=passwd type="password"}}
+            {{input placeholder="Estado" value=model.state type="text"}}
           </div>
           <div class="input-field col s12 m4">
-            {{input placeholder="Repetir Senha" value=passwdrpt type="password"}}
+            {{input placeholder="Cidade" value=model.city type="text"}}
+          </div>
+
+          <div class="input-field col s12 m12">
+            {{input placeholder="Email" value=model.email type="text"}}
+          </div>
+
+          <div class="input-field col s12 m12">
+            {{input placeholder="Repetir Email" value=model.emailrpt type="text"}}
+          </div>
+
+          <div class="input-field col s12 m4">
+            {{input placeholder="Login" value=model.login type="text"}}
+          </div>
+          <div class="input-field col s12 m4">
+            {{input placeholder="Senha" value=model.passwd type="password"}}
+          </div>
+          <div class="input-field col s12 m4">
+            {{input placeholder="Repetir Senha" value=model.passwdrpt type="password"}}
           </div>
           <button {{action "register"}} class="btn-large blue lighten-2 col s12 m3 right" style="margin-top: 1.2%; margin-bottom:3%; margin-right:2.5%;">
             Enviar

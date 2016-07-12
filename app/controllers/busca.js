@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
     });
   },
   actions: {
-    render(){ //colocar aqui as funções de filtro de pesquisa, tudo aqui acontece antes do render
+    render(){ //colocar aqui as funções de filtro de pesquisa, tudo aqui acontece imediatamente depois do render
       console.log(this.get('search'));
     }
   }

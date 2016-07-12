@@ -1,8 +1,72 @@
 import Ember from 'ember';
 
+var sHost = "http://localhost:8000"; //Host do servidor
+
+var post = function(obj, url){
+  var request = Ember.$.ajax({
+    type        : 'POST',
+    url         : sHost + url,
+    dataType    : 'json',
+    data        : JSON.stringify(obj),
+    processData : false,
+    contentType : 'application/json'
+  });
+  request.done(function(msg) {
+    console.log(msg);
+  });
+  request.fail(function(jqXHR, textStatus) {
+    console.log('Request failed: ' + textStatus);
+  });
+};
+
+
+
 export default Ember.Controller.extend({
   actions: {
     register(){
+      var inputs = this.model;
+      var count = 0;
+      for (var type in inputs) {
+        if(type == null || type == ''){
+          Materialize.toast('Preencha todos os campos', 2000);
+          return false;
+        }
+        else {
+          count++;
+        }
+      }
+      if(count < 11){
+        Materialize.toast('Preencha todos os campos', 2000);
+        return false;
+      }
+      if(inputs.email != inputs.emailrpt){
+        Materialize.toast("Os emails não conferem", 2000);
+        return false;
+      }
+      if(inputs.passwd.length < 6){
+        Materialize.toast("Entre com uma senha de mais de 6 dígitos", 2000);
+        return false;
+      }
+      if(inputs.passwd != inputs.passwdrpt){
+        Materialize.toast("As senhas não conferem", 2000);
+        return false;
+      }
+
+
+      var user =  {
+        primeiroNome : inputs.name,
+        sobreNome    : inputs.surname,
+        tipoSexo     : inputs.sex,
+        pais         : inputs.country,
+        estado       : inputs.state,
+        cidade       : inputs.city,
+        email        : inputs.email,
+        login        : inputs.login,
+        senha        : inputs.passwd
+      };
+
+      post(user, '/cadastro');
+
     }
   }
 });

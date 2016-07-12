@@ -8,5 +8,9 @@ export default Ember.Route.extend({
   },
   initTooltip() {
     Ember.$('.parallax').parallax();
+  },
+  model(){
+    var input = {};
+    return input;
   }
 });
