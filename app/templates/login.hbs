@@ -7,14 +7,14 @@
       <div class="row center">
         <div class="white z-depth-3 col s12 m4 offset-m4" style="margin-bottom:20%;">
           <div class="input-field" style="margin-left:3.3%">
-            <input placeholder="Login" id="login" type="text">
+            {{input placeholder="Login" value=login type="text"}}
           </div>
           <div class="input-field" style="margin-left:3.3%">
-            <input placeholder="Senha" id="senha" type="password">
+            {{input placeholder="Senha" value=passwd type="password"}}
           </div>
-          <div class="btn-large blue lighten-2 col s12" style="margin-top: 1.2%; margin-bottom:3%">
+          <button {{action "login"}} class="btn-large blue lighten-2 col s12" style="margin-top: 1.2%; margin-bottom:3%">
             Entrar
-          </div>
+          </button>
           {{#link-to "cadastro" class="white-text"}}
             <div class="btn-large blue lighten-2 col s12" style="margin-top: 1.2%; margin-bottom:3%;">
               Registrar

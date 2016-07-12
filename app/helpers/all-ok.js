@@ -31,6 +31,11 @@ export function allOk(params/*, hash*/) {
   inputs.passwd = params[9];
   inputs.passwdrpt = params[10];
 
+
+  if(inputs.gender == "Sexo"){
+    return false;
+  }
+
   if(inputs.email == inputs.emailrpt){
     if(!validateEmail(inputs.email)){
       return false;

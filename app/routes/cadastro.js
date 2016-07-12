@@ -21,8 +21,8 @@ export default Ember.Route.extend({
     );
   },
   model(){
-    var input = {};
-    input.gender = "Sexo";
-    return input;
+    var inputs = {};
+    inputs.gender = "Sexo";
+    return inputs;
   }
 });

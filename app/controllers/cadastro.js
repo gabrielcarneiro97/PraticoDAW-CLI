@@ -21,40 +21,11 @@ var post = function(obj, url, callback200){
 export default Ember.Controller.extend({
   actions: {
     changeGender(gen){
-      // this.model.gender = gen;
       Ember.set(this.model, 'gender', gen);
     },
     register(){
       var self = this;
       var inputs = this.model;
-
-      var count = 0;
-      for (var type in inputs) {
-        if(type == null || type == ''){
-          Materialize.toast('Preencha todos os campos', 2000);
-          return false;
-        }
-        else {
-          count++;
-        }
-      }
-      if(count < 11){
-        Materialize.toast('Preencha todos os campos', 2000);
-        return false;
-      }
-      if(inputs.email != inputs.emailrpt){
-        Materialize.toast("Os emails não conferem", 2000);
-        return false;
-      }
-      if(inputs.passwd.length < 6){
-        Materialize.toast("Entre com uma senha de mais de 6 dígitos", 2000);
-        return false;
-      }
-      if(inputs.passwd != inputs.passwdrpt){
-        Materialize.toast("As senhas não conferem", 2000);
-        return false;
-      }
-
 
       var user =  {
         primeiroNome : inputs.name,
@@ -71,7 +42,6 @@ export default Ember.Controller.extend({
       post(user, '/cadastro', function(){
         self.transitionToRoute('main');
         Materialize.toast("Cadastro efetuado com sucesso", 2000);
-
       });
 
     }

@@ -11,8 +11,8 @@ export default Ember.Controller.extend({
   actions: {
     buscar(){
       this.set('searchIn', this.search);
-      console.log(this.searchIn);
       this.set('search', '');
+      this.transitionToRoute("busca");
     },
     render(){ //tudo aqui acontece imediatamente depois do render
     }
