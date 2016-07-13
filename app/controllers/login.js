@@ -23,10 +23,9 @@ export default Ember.Controller.extend({
     login(){
       var self = this;
       var user = {
-        login: model.login,
-        senha: model.passwd
-      }
-
+        login: this.model.login,
+        senha: this.model.passwd
+      };
 
       post(user, '/login', function() {
 

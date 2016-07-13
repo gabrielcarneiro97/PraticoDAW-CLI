@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('empresas');
   this.route('cadastro');
   this.route('busca');
+  this.route('perfil');
 });
 
 export default Router;
