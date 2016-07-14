@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
   on: Ember.computed.alias("perfil.on"),
   actions: {
     toLogin(){
-      console.log(this.get('on'));
       if(this.get('on')){
         this.transitionToRoute('/perfil', {queryParams: {id: this.get('id')}});
       }

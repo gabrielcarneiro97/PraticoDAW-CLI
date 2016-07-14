@@ -7,7 +7,8 @@
   <div class="nav-wrapper container">{{#link-to "main" id="logo-container" class="brand-logo"}}<span class="lblue-text">Job<span class="grey-text">Finder</span></span>{{/link-to}}
     <ul class="right">
      <!-- Dropdown Trigger -->
-     <li><a class="dropdown-button" data-activates="dropdown1">{{fa-icon "bars" class="fa-lg right lblue-text"}}</a></li>
+     <li class="drop-item">{{#link-to "empresas" class="lblue-text"}}Empresas{{/link-to}}</li>
+     <li><a {{action "toLogin"}} class="lblue-text">{{fa-icon "user"}}</a></li>
     </ul>
   </div>
 </nav>

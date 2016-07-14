@@ -3,6 +3,26 @@
   width: 190%;
 }
 
+.photodiv {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:4%;
+  margin-bottom: 4%
+}
+
+.menudiv {
+
+}
+.menudiv a {
+  color: #64B5F6 !important;
+}
+
+.name {
+  text-align: center;
+  text-decoration-style: solid;
+}
+
 .card-action a {
   color: #64B5F6 !important;
 }
