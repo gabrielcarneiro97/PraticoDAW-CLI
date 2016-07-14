@@ -1,5 +1,15 @@
 import Ember from 'ember';
 
+function get(url) {
+  var request = Ember.$.ajax({
+    type        : 'GET',
+    url         : sHost + url,
+    statusCode  : {
+
+    }
+  });
+};
+
 export default Ember.Route.extend({
   actions: {
     didTransition(){
@@ -12,11 +22,6 @@ export default Ember.Route.extend({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
   },
-  model(params){
-    this.controllerFor('perfil').set('id', params.id);
-    console.log(this.controllerFor('perfil').get('id'));
-    return {
-      id: params.id
-    }
+  model(){
   }
 });

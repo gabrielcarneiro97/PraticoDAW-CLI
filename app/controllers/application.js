@@ -1,13 +1,30 @@
 import Ember from 'ember';
 
+function get(url, callback418, callback203) {
+  var request = Ember.$.ajax({
+    type        : 'GET',
+    url         : sHost + url,
+    statusCode  : {
+      418: callback418,
+      203: callback203
+    }
+  });
+
+}
+
 export default Ember.Controller.extend({
-  perfil: Ember.inject.controller(),
-  id: Ember.computed.alias("perfil.id"),
-  on: Ember.computed.alias("perfil.on"),
+  isLog: "zzz",
   actions: {
     toLogin(){
-      if(this.get('on')){
-        this.transitionToRoute('/perfil', {queryParams: {id: this.get('id')}});
+      var self = this;
+      console.log(self.isLog);
+      get('/candidato/session', function () {
+        self.isLog = true;
+      }, function(){
+        self.isLog = false;
+      });
+      if(self.isLog){
+        this.transitionToRoute('/perfil');
       }
       else {
         this.transitionToRoute('/login');

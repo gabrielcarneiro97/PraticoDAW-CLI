@@ -1,6 +1,5 @@
 import Ember from 'ember';
 
-var sHost = "http://localhost:8000"; //Host do servidor
 
 var post = function(obj, url, callback200){
   Ember.$.ajax({
@@ -11,7 +10,7 @@ var post = function(obj, url, callback200){
     processData : false,
     contentType : 'application/json',
     statusCode: {
-      200: callback200()
+      200: callback200
     }
   });
 };

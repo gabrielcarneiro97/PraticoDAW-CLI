@@ -1,7 +1,5 @@
 import Ember from 'ember';
 
-var sHost = "http://localhost:8000"; //Host do servidor
-
 var post = function(obj, url, callback202, callback403){
   var request = Ember.$.ajax({
     type        : 'POST',
@@ -15,6 +13,9 @@ var post = function(obj, url, callback202, callback403){
       403: callback403,
       404: function() {
         console.log("404");
+      },
+      500: function() {
+        Materialize.toast("Problemas no servidor, por favor tente novamente mais tarde", 4000);
       }
     }
   });
@@ -22,9 +23,6 @@ var post = function(obj, url, callback202, callback403){
 
 
 export default Ember.Controller.extend({
-  perfil: Ember.inject.controller(),
-  id: Ember.computed.alias("perfil.id"),
-  on: Ember.computed.alias("perfil.on"),
   actions: {
     login(){
       var self = this;
@@ -32,10 +30,8 @@ export default Ember.Controller.extend({
         login: this.model.login,
         senha: this.model.passwd
       };
-
       post(user, '/candidato/main', function() {
-        console.log("zzz");
-        self.set('on', true);
+        self.transitionToRoute('/perfil');
       }, function() {
         Materialize.toast("Login ou senha invalidos", 2000);
         console.log("deu ruim");
