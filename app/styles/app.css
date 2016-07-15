@@ -7,24 +7,34 @@
   display:flex;
   justify-content:center;
   align-items:center;
-  margin-top:4%;
+  margin-top:7%;
   margin-bottom: 4%;
+  margin-left: 4.5% !important;
+}
+
+.infodiv {
+    margin-left: 4% !important;
+    margin-top: -7% !important;
 }
 
 .menu-div {
-  border-right: 1px solid #dbdbdb;
   flex-basis: 236px;
   -webkit-box-flex: 0;
   flex-grow: 0;
   flex-shrink: 0;
 }
 
+.in-label {
+  margin-top: 3.5%;
+  font-size: 15px;
+}
 
 li {
   border-left: 3px solid transparent;
     display: list-item;
     text-align: -webkit-match-parent;
 }
+
 
 .menu-div {
   margin-left: 0;

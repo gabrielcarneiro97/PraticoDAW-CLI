@@ -5,15 +5,15 @@
 
 
           <ul class="menu-div col s12 m4" style="padding: 0;">
-            <li class="menu-li"><a class="menu-item-perfil" {{action "pessoal"}}><span class="lblue-text">{{fa-icon "user" aria-hidden="true"}}</span> Pessoal</a></li>
+            <li class="menu-li" {{action "pessoal"}}><a class="menu-item-perfil" ><span class="lblue-text">{{fa-icon "user" aria-hidden="true"}}</span> Pessoal</a></li>
             <li class="menu-li"><a class="menu-item-perfil"><span class="lblue-text">{{fa-icon "user" aria-hidden="true"}}</span> Vagas</a></li>
             <li class="menu-li"><a class="menu-item-perfil"><span class="lblue-text">{{fa-icon "cog" aria-hidden="true"}}</span> Configurações</a></li>
-            <li class="menu-li"><a class="menu-item-perfil" {{action "logout"}}><span class="lblue-text">{{fa-icon "sign-out" aria-hidden="true"}}</span> Logout</a></li>
+            <li class="menu-li" {{action "logout"}}><a class="menu-item-perfil"><span class="lblue-text">{{fa-icon "sign-out" aria-hidden="true"}}</span> Logout</a></li>
           </ul>
 
 
-        <div class="col s12 m8">
-          <div class="row namediv">
+        <div class="col s12 m8" style="border-left: 1.5px solid #dbdbdb;">
+          <div class="row">
             <div class="photodiv col s12 m4">
               <div class="chip">
                 <img src="/assets/images/profile_M.jpg" alt="" >
@@ -22,7 +22,68 @@
             </div>
           </div>
           {{#if (eq 1 model.exib)}}
+            <div class="row">
+              <div class="infodiv col s12">
 
+                <div class="input-field col s10">
+                  <div class="col s2 grey-text in-label">
+                    Nome
+                  </div>
+                  <div class="col s9 offset-s1">
+                    {{input value=model.primeiroNome}}
+                  </div>
+                </div>
+                <div class="input-field col s10">
+                  <div class="col s2 grey-text in-label">
+                    Sobrenome
+                  </div>
+                  <div class="col s9 offset-s1">
+                    {{input value=model.sobreNome}}
+                  </div>
+                </div>
+
+                <div class="input-field col s10 bord-top">
+                  <div class="col s2 grey-text in-label">
+                    Cidade
+                  </div>
+                  <div class="col s9 offset-s1">
+                    {{input value=model.cidade}}
+                  </div>
+                </div>
+                <div class="input-field col s10">
+                  <div class="col s2 grey-text in-label">
+                    Estado
+                  </div>
+                  <div class="col s9 offset-s1">
+                    {{input value=model.estado}}
+                  </div>
+                </div>
+                <div class="input-field col s10">
+                  <div class="col s2 grey-text in-label">
+                    País
+                  </div>
+                  <div class="col s9 offset-s1">
+                    {{input value=model.pais}}
+                  </div>
+                </div>
+
+
+                <div class="input-field col s10">
+                  <div class="col s2 grey-text in-label">
+                    Email
+                  </div>
+                  <div class="col s9 offset-s1">
+                    {{input value=model.email}}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s4 offset-s7">
+                <a class="btn blue lighten-2">Enviar</a>
+              </div>
+            </div>
           {{/if}}
 
         </div>

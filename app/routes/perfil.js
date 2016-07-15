@@ -33,6 +33,7 @@ export default Ember.Route.extend({
     get('/candidato/getinfo', function(data){
       self.infos = data;
     });
+    Ember.set(self.infos, 'exib', 1);
     return self.infos;
   }
 });

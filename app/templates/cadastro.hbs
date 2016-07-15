@@ -39,17 +39,31 @@
             {{input placeholder="Repetir Email" value=model.emailrpt type="email" class="validate"}}
           </div>
 
-          <div class="input-field col s12 m4">
+          <div class="input-field col s12 m12">
             {{input placeholder="Login" value=model.login type="text"}}
           </div>
-          <div class="input-field col s12 m4">
+
+          <div class="input-field col s12 m5">
             {{input placeholder="Senha" value=model.passwd type="password"}}
           </div>
-          <div class="input-field col s12 m4">
+          <div class="input-field col s12 m5">
             {{input placeholder="Repetir Senha" value=model.passwdrpt type="password"}}
           </div>
+          <div class="col m1 lblue-text" style="margin-top: 3%">
+            <a class="tooltipped lblue-text" data-position="top" data-delay="50" data-tooltip="A senha deve ter no mínimo 6 caracteres">{{fa-icon "question-circle" size=2}}</a>
+          </div>
+
+          {{#if (eq2 model.passwd model.passwdrpt)}}
+            <div class="col m12 white-text">
+              As senhas não conferem
+            </div>
+          {{else}}
+            <div class="col m10" style="color: red; margin-top: -.8%">
+              As senhas não conferem
+            </div>
+          {{/if}}
           {{#if (allOk model.name model.surname model.gender model.country model.state model.city model.email model.emailrpt model.login model.passwd model.passwdrpt)}}
-            <button {{action "register"}} class="btn-large blue lighten-2 col s12 m3 right" style="margin-top: 1.2%; margin-bottom:3%; margin-right:2.5%;">
+            <button {{action "register"}} class="btn-large blue lighten-2 col s12 m3 right" style="margin-top: 2%; margin-bottom:3%; margin-right:2.5%;">
               Enviar
             </button>
           {{else}}

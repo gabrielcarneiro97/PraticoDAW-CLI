@@ -16,13 +16,10 @@ function get(url, callback204) {
 export default Ember.Controller.extend({
   actions: {
     pessoal(){
-      console.log(this.model.exib);
       Ember.set(this.model, 'exib','1');
-      console.log(this.model.exib);
     },
     logout(){
       var self = this;
-      console.log("zzzzz");
         get('/candidato/logout', function() {
           self.transitionToRoute('/');
           Materialize.toast("Logout efetuado com sucesso", 2000);

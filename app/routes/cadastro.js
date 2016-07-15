@@ -7,6 +7,7 @@ export default Ember.Route.extend({
     }
   },
   initTooltip() {
+    Ember.$('.tooltipped').tooltip({delay: 50});
     Ember.$('.parallax').parallax();
     Ember.$('select').material_select();
     Ember.$('.dropdown-button').dropdown({
