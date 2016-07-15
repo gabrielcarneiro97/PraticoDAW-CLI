@@ -1,17 +1,22 @@
 import Ember from 'ember';
 import Conect from '../hosts';
 
-function get(url) {
-  var request = Ember.$.ajax({
+function get(url, callback200) {
+  Ember.$.ajax({
+    async       : false,
     type        : 'GET',
     url         : Conect.sHost + url,
+    xhrFields   : {
+      withCredentials: true
+    },
     statusCode  : {
-
+      200 : callback200
     }
   });
 };
 
 export default Ember.Route.extend({
+  infos: null,
   actions: {
     didTransition(){
        Ember.run.next(this, 'initTooltip');
@@ -24,5 +29,10 @@ export default Ember.Route.extend({
     });
   },
   model(){
+    var self = this;
+    get('/candidato/getinfo', function(data){
+      self.infos = data;
+    });
+    return self.infos;
   }
 });

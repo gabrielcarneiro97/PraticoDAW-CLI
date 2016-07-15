@@ -9,7 +9,10 @@ var post = function(obj, url, callback202, callback403){
     data        : JSON.stringify(obj),
     processData : false,
     contentType : 'application/json',
-    statusCode: {
+    xhrFields   : {
+      withCredentials: true
+    },
+    statusCode  : {
       202: callback202,
       403: callback403,
       404: function() {

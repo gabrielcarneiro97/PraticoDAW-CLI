@@ -1,38 +1,30 @@
 import Ember from 'ember';
 import Conect from '../hosts';
 
-function get(url, callback418, callback203) {
+function get(url, callback202, callback203) {
   Ember.$.ajax({
     type        : 'GET',
     url         : Conect.sHost + url,
+    xhrFields   : {
+      withCredentials: true
+    },
     statusCode  : {
-      418: callback418,
+      202: callback202,
       203: callback203
-    }
+    },
   });
-
 }
 
 export default Ember.Controller.extend({
-  isLog: "zzz",
   actions: {
-    teste(){
-      console.log(Conect.sHost);
-    },
     toLogin(){
       var self = this;
-      console.log(self.isLog);
       get('/candidato/session', function () {
-        self.isLog = true;
+        self.transitionToRoute('/perfil');
       }, function(){
-        self.isLog = false;
+        self.transitionToRoute('/login');
       });
-      if(self.isLog){
-        this.transitionToRoute('/perfil');
-      }
-      else {
-        this.transitionToRoute('/login');
-      }
+
     }
   }
 });

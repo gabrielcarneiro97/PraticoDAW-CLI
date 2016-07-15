@@ -1,32 +1,34 @@
-<div class="container">
-  <div class="row" style="margin-top:5%">
-    <div class="col s12 m3 card-panel white">
-      <div class="name">
-        Comedor
-      </div>
-      <div class="photodiv">
-        <img src="/assets/images/profile_M.jpg" alt="" />
-      </div>
+<div class="parallax-container">
+  <div class="section" id="index-banner">
+    <div class="container">
+      <div class="row card-panel" style="margin-top: 5%; padding: 0">
 
-      <div class="collection menudiv">
-        <div class="collection-item blue lighten-4">
-          <h5 class="white-text" style="text-align:center">Menu</h5>
+
+          <ul class="menu-div col s12 m4" style="padding: 0;">
+            <li class="menu-li"><a class="menu-item-perfil" {{action "pessoal"}}><span class="lblue-text">{{fa-icon "user" aria-hidden="true"}}</span> Pessoal</a></li>
+            <li class="menu-li"><a class="menu-item-perfil"><span class="lblue-text">{{fa-icon "user" aria-hidden="true"}}</span> Vagas</a></li>
+            <li class="menu-li"><a class="menu-item-perfil"><span class="lblue-text">{{fa-icon "cog" aria-hidden="true"}}</span> Configurações</a></li>
+            <li class="menu-li"><a class="menu-item-perfil" {{action "logout"}}><span class="lblue-text">{{fa-icon "sign-out" aria-hidden="true"}}</span> Logout</a></li>
+          </ul>
+
+
+        <div class="col s12 m8">
+          <div class="row namediv">
+            <div class="photodiv col s12 m4">
+              <div class="chip">
+                <img src="/assets/images/profile_M.jpg" alt="" >
+                {{model.login}}
+              </div>
+            </div>
+          </div>
+          {{#if (eq 1 model.exib)}}
+
+          {{/if}}
+
         </div>
-        <a href="#!" class="collection-item">Pessoal<span class="badge">{{fa-icon "user" aria-hidden="true"}}</span></a>
-        <a href="#!" class="collection-item">Vagas<span class="badge">{{fa-icon "user" aria-hidden="true"}}</span></a>
-        <a href="#!" class="collection-item">Configurações<span class="badge">{{fa-icon "cog" aria-hidden="true"}}</span></a>
-        <a href="#!" {{action "logout"}} class="collection-item">Logout<span class="badge">{{fa-icon "sign-out" aria-hidden="true"}}</span></a>
       </div>
     </div>
-    <div class="col s12 m8 offset-m1">
-      <div class="collection">
-        <div class="collection-item blue lighten-4">
-          <h4></h4>
-        </div>
-        <div class="collection-item">
+    <div class="parallax"><img src="assets/images/cityNoLights.jpg" alt="image"/></div>
 
-        </div>
-      </div>
-    </div>
   </div>
 </div>
