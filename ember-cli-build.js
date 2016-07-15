@@ -69,7 +69,6 @@ module.exports = function(defaults) {
     destDir : '/fonts/roboto'
   });
   app.import(MaterializeIcons);
-  app.import('bower_components/hosts.js')
 
   return app.toTree();
 };

@@ -1,8 +1,10 @@
 import Ember from 'ember';
+import Conect from '../hosts';
+
 function get(url, callback204) {
   var request = Ember.$.ajax({
     type        : 'GET',
-    url         : sHost + url,
+    url         : Conect.sHost + url,
     statusCode  : {
       204: callback204
     }

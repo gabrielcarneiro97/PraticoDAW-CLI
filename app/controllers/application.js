@@ -1,9 +1,10 @@
 import Ember from 'ember';
+import Conect from '../hosts';
 
 function get(url, callback418, callback203) {
-  var request = Ember.$.ajax({
+  Ember.$.ajax({
     type        : 'GET',
-    url         : sHost + url,
+    url         : Conect.sHost + url,
     statusCode  : {
       418: callback418,
       203: callback203
@@ -15,6 +16,9 @@ function get(url, callback418, callback203) {
 export default Ember.Controller.extend({
   isLog: "zzz",
   actions: {
+    teste(){
+      console.log(Conect.sHost);
+    },
     toLogin(){
       var self = this;
       console.log(self.isLog);

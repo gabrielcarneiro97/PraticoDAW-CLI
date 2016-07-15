@@ -1,10 +1,11 @@
 import Ember from 'ember';
+import Conect from '../hosts';
 
 
 var post = function(obj, url, callback200){
   Ember.$.ajax({
     type        : 'POST',
-    url         : sHost + url,
+    url         : Conect.sHost + url,
     dataType    : 'json',
     data        : JSON.stringify(obj),
     processData : false,
