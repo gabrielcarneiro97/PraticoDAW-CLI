@@ -15,8 +15,13 @@ function get(url, callback204) {
 };
 export default Ember.Controller.extend({
   actions: {
-    pessoal(){
-      Ember.set(this.model, 'exib','1');
+    setMenu(which){
+      Ember.set(this.model, 'exib', which);
+      Ember.$(".menu-li").removeClass("menu-li-active");
+      if(which == 1)
+        Ember.$("#pessoal-btn").addClass("menu-li-active");
+      else if(which == 2)
+        Ember.$("#local-btn").addClass("menu-li-active");
     },
     logout(){
       var self = this;

@@ -38,7 +38,6 @@ export default Ember.Controller.extend({
         self.transitionToRoute('/perfil');
       }, function() {
         Materialize.toast("Login ou senha invalidos", 2000);
-        console.log("deu ruim");
       });
     }
   }

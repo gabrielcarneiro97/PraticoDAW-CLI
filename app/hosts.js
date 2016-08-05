@@ -1,1 +1,1 @@
-export default { sHost: "http://10.0.0.12:8000" };
+export default { sHost: "http://localhost:8000" };

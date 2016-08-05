@@ -1,6 +1,18 @@
+footer {
+  padding: 0 20px;
+}
+
+.lgrey-text {
+  color: #bdbdbd;
+}
+
 .buildings {
   margin-bottom: -3%;
   width: 190%;
+}
+
+.fix-parallax {
+  min-height: 780px !important;
 }
 
 .photodiv {
@@ -22,6 +34,7 @@
   -webkit-box-flex: 0;
   flex-grow: 0;
   flex-shrink: 0;
+  margin-top:.01%;
 }
 
 .in-label {
@@ -52,7 +65,7 @@ li {
 .menu-li{
   cursor: pointer;
 }
-.menu-li:hover{
+.menu-li:hover, .menu-li-active{
   transition: .35s;
   border-left: 3px solid grey;
   background-color: #fafafa;

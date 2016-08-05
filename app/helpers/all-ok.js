@@ -16,7 +16,8 @@ export function allOk(params/*, hash*/) {
   var inputs = {};
   for (var i = 0; i < params.length; i++) {
     if (params[i] == null || params[i] == '' || params[i] == undefined) {
-      return false;
+      if(i != 16)
+        return false;
     }
   }
   inputs.name = params[0];
@@ -30,6 +31,14 @@ export function allOk(params/*, hash*/) {
   inputs.login = params[8];
   inputs.passwd = params[9];
   inputs.passwdrpt = params[10];
+  inputs.cpf = params[11];
+  inputs.rg = params[12];
+  inputs.street = params[13];
+  inputs.cep = params[14];
+  inputs.numHouse = params[15];
+  inputs.comp = params[16];
+  inputs.tel = params[17];
+  inputs.cel = params[18];
 
 
   if(inputs.gender == "Sexo"){

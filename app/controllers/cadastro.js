@@ -1,11 +1,11 @@
 import Ember from 'ember';
-import Conect from '../hosts';
+import Connect from '../hosts';
 
 
 var post = function(obj, url, callback200){
   Ember.$.ajax({
     type        : 'POST',
-    url         : Conect.sHost + url,
+    url         : Connect.sHost + url,
     dataType    : 'json',
     data        : JSON.stringify(obj),
     processData : false,
@@ -28,15 +28,23 @@ export default Ember.Controller.extend({
       var inputs = this.model;
 
       var user =  {
-        primeiroNome : inputs.name,
-        sobreNome    : inputs.surname,
-        tipoSexo     : inputs.gender,
-        pais         : inputs.country,
-        estado       : inputs.state,
-        cidade       : inputs.city,
-        email        : inputs.email,
-        login        : inputs.login,
-        senha        : inputs.passwd
+        primeiroNome          : inputs.name,
+        sobreNome             : inputs.surname,
+        tipoSexo              : inputs.gender,
+        pais                  : inputs.country,
+        estado                : inputs.state,
+        cidade                : inputs.city,
+        CEP                   : inputs.cep,
+        logradouro            : inputs.street,
+        numeroResidencia      : inputs.numHouse,
+        complementoLocalidade : inputs.comp,
+        email                 : inputs.email,
+        login                 : inputs.login,
+        senha                 : inputs.passwd,
+        RG                    : inputs.rg,
+        CPF                   : inputs.cpf,
+        numCelular            : inputs.cel,
+        numTelFixo            : inputs.tel
       };
 
       post(user, '/cadastro', function(){

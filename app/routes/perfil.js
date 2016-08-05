@@ -1,11 +1,11 @@
 import Ember from 'ember';
-import Conect from '../hosts';
+import Connect from '../hosts';
 
 function get(url, callback200) {
   Ember.$.ajax({
     async       : false,
     type        : 'GET',
-    url         : Conect.sHost + url,
+    url         : Connect.sHost + url,
     xhrFields   : {
       withCredentials: true
     },
@@ -23,7 +23,9 @@ export default Ember.Route.extend({
     }
   },
   initTooltip() {
+    Ember.$("#pessoal-btn").addClass("menu-li-active");
     Ember.$('.parallax').parallax();
+    Ember.$('ul.tabs').tabs('select_tab', 'tab_id');
     Ember.$('.collapsible').collapsible({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
