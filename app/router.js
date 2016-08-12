@@ -11,9 +11,14 @@ Router.map(function() {
   });
   this.route('login');
   this.route('empresas');
-  this.route('cadastro');
+  this.route('cadastro', function() {
+    this.route('main');
+    this.route('candidato');
+    this.route('empresa');
+  });
   this.route('busca');
   this.route('perfil');
+  this.route('perfilEmpresa');
 });
 
 export default Router;

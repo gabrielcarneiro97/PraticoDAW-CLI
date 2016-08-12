@@ -28,14 +28,27 @@ var post = function(obj, url, callback202, callback403){
 
 export default Ember.Controller.extend({
   actions: {
+    changeLogin(log){
+      Ember.set(this.model, 'loginType', log);
+    },
     login(){
+      var where = '';
+      var goTo = '';
       var self = this;
       var user = {
         login: this.model.login,
         senha: this.model.passwd
       };
-      post(user, '/candidato/main', function() {
-        self.transitionToRoute('/perfil');
+      if(this.model.loginType == "Candidato"){
+        where = '/candidato/main';
+        goTo = '/perfil';
+      }
+      else {
+        where = '/empresa/login';
+        goTo = '/perfilEmpresa';
+      }
+      post(user, where, function() {
+        self.transitionToRoute(goTo);
       }, function() {
         Materialize.toast("Login ou senha invalidos", 2000);
       });

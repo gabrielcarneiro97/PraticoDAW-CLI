@@ -1,0 +1,95 @@
+<div class="white z-depth-3 col s12 m10 offset-m1" style="margin-bottom:20%;">
+  <div class="col s12" style="margin-top: 3%">
+    <h5 class="lgrey-text">Informações Gerais </h5>
+  </div>
+
+  <div class="input-field col s12 m12">
+    {{input value=model.name placeholder="Razão Social" type="text" id="nome"}}
+  </div>
+  <div class="input-field col s12 m6">
+    {{input-mask mask="99.999.999/9999-99" unmaskedValue=model.cnpj placeholder="CNPJ" type="text" id="cnpj"}}
+  </div>
+
+
+  <div class="input-field col s12 m6">
+    {{input-mask mask="(99)9999-9999" unmaskedValue=model.tel placeholder="Telefone" type="text" id="tel"}}
+  </div>
+
+
+
+
+
+  <div class="col s12" style="margin-top: 3%">
+    <h5 class="lgrey-text">Endereço</h5>
+  </div>
+
+  <div class="input-field col s12 m6">
+    {{input placeholder="País" value=model.country type="text" id="pais"}}
+  </div>
+  <div class="input-field col s12 m6">
+    {{input placeholder="Estado" value=model.state type="text" id="estado"}}
+  </div>
+  <div class="input-field col s12 m6">
+    {{input placeholder="Cidade" value=model.city type="text" id="cidade"}}
+  </div>
+  <div class="input-field col s12 m6">
+    {{input placeholder="Rua" value=model.street type="text" id="rua"}}
+  </div>
+  <div class="input-field col s12 m6">
+    {{input-mask mask="99 999-999" placeholder="CEP" unmaskedValue=model.cep type="text" id="cep"}}
+  </div>
+  <div class="input-field col s12 m3">
+    {{input placeholder="Número" value=model.numHouse type="text" id="num"}}
+  </div>
+  <div class="input-field col s12 m3">
+    {{input placeholder="Complemento" value=model.comp type="text" id="comp"}}
+  </div>
+
+  <div class="col s12" style="margin-top: 3%">
+    <h5 class="lgrey-text">Login</h5>
+  </div>
+
+
+
+  <div class="input-field col s12 m12">
+    {{input placeholder="Login" value=model.login type="text" id="login"}}
+  </div>
+
+  <div class="input-field col s12 m5">
+    {{input placeholder="Senha" value=model.passwd type="password" id="passwd"}}
+  </div>
+  <div class="input-field col s12 m5">
+    {{input placeholder="Repetir Senha" value=model.passwdrpt type="password" id="passwdrpt"}}
+  </div>
+  <div class="col m1 lblue-text" style="margin-top: 3%">
+    <a class="tooltipped lblue-text" data-position="top" data-delay="50" data-tooltip="A senha deve ter no mínimo 6 caracteres">{{fa-icon "question-circle" size=2}}</a>
+  </div>
+
+  {{#if (eq2 model.passwd model.passwdrpt)}}
+    <div class="col m12 white-text">
+      As senhas não conferem
+    </div>
+  {{else}}
+    <div class="col m10" style="color: red; margin-top: -.8%">
+      As senhas não conferem
+    </div>
+  {{/if}}
+
+  <div class="input-field col s12 m6">
+    {{input placeholder="Email" value=model.email type="email" class="validate" id="email"}}
+  </div>
+  <div class="input-field col s12 m6">
+    {{input placeholder="Repetir Email" value=model.emailrpt type="email" class="validate" id="emailrpt"}}
+  </div>
+
+  {{!-- {{#if (allOkEmpresa model.name model.country model.state model.city model.email model.emailrpt model.login model.passwd model.passwdrpt model.cnpj model.street model.cep model.numHouse model.comp model.tel model.cel)}} --}}
+    <button {{action "register"}} class="btn-large blue lighten-2 col s12 m3 right" style="margin-top: 2%; margin-bottom:3%; margin-right:2.5%;">
+      Enviar
+    </button>
+  {{!-- {{else}}
+    <button class="btn-large disabled blue lighten-2 col s12 m3 right" style="margin-top: 1.2%; margin-bottom:3%; margin-right:2.5%;">
+      Enviar
+    </button>
+  {{/if}} --}}
+
+</div>

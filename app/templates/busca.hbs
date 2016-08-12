@@ -1,1 +1,29 @@
-{{model.search}}
+<div class="parallax-container fix-parallax">
+  <div class="section" id="index-banner">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 black-shadow" style="margin-top:10%; margin-bottom:-1%; color: white">Resultados</h5>
+      </div>
+      <div class="row center">
+        <ul class="collapsible popout" data-collapsible="accordion">
+          {{#each model.vagas as |vaga|}}
+            <li>
+              <div class="collapsible-header lgrey-text">{{vaga.titulo}}</div>
+              <div class="collapsible-body white">
+                <p class="lgrey-text"><span class="left"><b class="black-text">Descrição: </b>{{vaga.descricao}}</span><br>
+                  <span class="left"><b class="black-text">Empresa: </b>{{vaga.empresa}}</span><br>
+                  <span class="left"><b class="black-text">Jornada: </b>{{vaga.jornadaDeTrabalho}}</span><br>
+                  <span class="left"><b class="black-text">Requisitos: </b>{{vaga.requisitos}}</span><br>
+                  <span class="left"><b class="black-text">Números de vagas: </b>{{vaga.qntdDisponivel}}</span><br>
+                  <span class="left"><b class="black-text">Salário Inicial: </b>{{vaga.salarioInicial}}</span><br>
+                </p>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+
+    </div>
+    <div class="parallax"><img src="assets/images/cityLights.jpg" alt="image"/></div>
+  </div>
+</div>

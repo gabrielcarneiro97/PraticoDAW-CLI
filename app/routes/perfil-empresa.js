@@ -1,20 +1,6 @@
 import Ember from 'ember';
 import Connect from '../hosts';
 
-function get(url, callback200) {
-  Ember.$.ajax({
-    async       : false,
-    type        : 'GET',
-    url         : Connect.sHost + url,
-    xhrFields   : {
-      withCredentials: true
-    },
-    statusCode  : {
-      200 : callback200
-    }
-  });
-};
-
 export default Ember.Route.extend({
   infos: null,
   actions: {
@@ -31,11 +17,24 @@ export default Ember.Route.extend({
     });
   },
   model(){
+
     var self = this;
-    get('/candidato/getinfo', function(data){
-      self.infos = data;
-      self.infos.curriculo = {};
+
+    Ember.$.ajax({
+      async       : false,
+      type        : 'GET',
+      url         : Connect.sHost + '/empresa/getinfo',
+      xhrFields: {
+        withCredentials: true
+      },
+      statusCode  : {
+        200 : function(data){
+          self.infos = data;
+          self.infos.newVaga = {};
+        }
+      }
     });
+
     Ember.set(self.infos, 'exib', 1);
     return self.infos;
   }

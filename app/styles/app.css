@@ -2,6 +2,10 @@ footer {
   padding: 0 20px;
 }
 
+div.parallax > img {
+  max-height: 780px !important;
+}
+
 .lgrey-text {
   color: #bdbdbd;
 }
@@ -13,6 +17,12 @@ footer {
 
 .fix-parallax {
   min-height: 780px !important;
+}
+
+.btn-cadastro {
+  margin-top: 3%;
+  margin-bottom:3%;
+  margin-right:2.5%;
 }
 
 .photodiv {

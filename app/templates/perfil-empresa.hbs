@@ -5,10 +5,9 @@
 
 
           <ul class="menu-div col s12 m4" style="padding: 0;">
-            <li class="menu-li" id="pessoal-btn" {{action "setMenu" "1"}}><a class="menu-item-perfil" ><span class="lblue-text">{{fa-icon "user" aria-hidden="true"}}</span> Pessoal</a></li>
+            <li class="menu-li" id="pessoal-btn" {{action "setMenu" "1"}}><a class="menu-item-perfil" ><span class="lblue-text">{{fa-icon "info-circle" aria-hidden="true"}}</span> Geral</a></li>
             <li class="menu-li" id="local-btn" {{action "setMenu" "2"}}><a class="menu-item-perfil" ><span class="lblue-text">{{fa-icon "home" aria-hidden="true"}}</span> Localização</a></li>
-            <li class="menu-li" id="curriculo-btn" {{action "setMenu" "3"}}><a class="menu-item-perfil"><span class="lblue-text">{{fa-icon "user" aria-hidden="true"}}</span> Curriculum</a></li>
-            <li class="menu-li" id="vagas-btn"><a class="menu-item-perfil"><span class="lblue-text">{{fa-icon "user" aria-hidden="true"}}</span> Vagas</a></li>
+            <li class="menu-li" id="vagas-btn" {{action "setMenu" "3"}}><a class="menu-item-perfil"><span class="lblue-text">{{fa-icon "inbox" aria-hidden="true"}}</span> Vagas</a></li>
             <li class="menu-li" id="config-btn"><a class="menu-item-perfil"><span class="lblue-text">{{fa-icon "cog" aria-hidden="true"}}</span> Configurações</a></li>
             <li class="menu-li" id="logout-btn" {{action "logout"}}><a class="menu-item-perfil"><span class="lblue-text">{{fa-icon "sign-out" aria-hidden="true"}}</span> Logout</a></li>
           </ul>
@@ -29,53 +28,29 @@
 
                 <div class="input-field col s10">
                   <div class="col s2 grey-text in-label">
-                    Nome
+                    Razão Social
                   </div>
                   <div class="col s9 offset-s1">
-                    {{input value=model.primeiroNome}}
+                    {{input value=model.razaoSocial}}
                   </div>
                 </div>
-                <div class="input-field col s10">
-                  <div class="col s2 grey-text in-label">
-                    Sobrenome
-                  </div>
-                  <div class="col s9 offset-s1">
-                    {{input value=model.sobreNome}}
-                  </div>
-                </div>
+
 
                 <div class="input-field col s10 bord-top">
                   <div class="col s2 grey-text in-label">
                     Telefone
                   </div>
                   <div class="col s9 offset-s1">
-                    {{input value=model.numTelFixo}}
-                  </div>
-                </div>
-                <div class="input-field col s10">
-                  <div class="col s2 grey-text in-label">
-                    Celular
-                  </div>
-                  <div class="col s9 offset-s1">
-                    {{input value=model.numCelular}}
-                  </div>
-                </div>
-                <div class="input-field col s10">
-                  <div class="col s2 grey-text in-label">
-                    RG
-                  </div>
-                  <div class="col s9 offset-s1">
-                    {{input value=model.RG}}
+                    {{input mask="(99)999-9999" unmaskedValue=model.numTelFixo}}
                   </div>
                 </div>
 
-
                 <div class="input-field col s10">
                   <div class="col s2 grey-text in-label">
-                    CPF
+                    CNPJ
                   </div>
                   <div class="col s9 offset-s1">
-                    {{input value=model.CPF}}
+                    {{input-mask mask="99.999.999/9999-99" unmaskedValue=model.CNPJ}}
                   </div>
                 </div>
 
@@ -115,7 +90,7 @@
                     CEP
                   </div>
                   <div class="col s9 offset-s1">
-                    {{input value=model.CEP}}
+                    {{input-mask mask="99 999-999" unmaskedValue=model.CEP}}
                   </div>
                 </div>
                 <div class="input-field col s10">
@@ -152,30 +127,54 @@
 
                 <div class="input-field col s10">
                   <div class="col s2 grey-text in-label">
-                    Experiencias
+                    Titulo
                   </div>
                   <div class="col s9 offset-s1">
-                    {{input value=model.curriculo.exp}}
+                    {{input value=model.newVaga.titulo}}
                   </div>
                 </div>
                 <div class="input-field col s10">
                   <div class="col s2 grey-text in-label">
-                    Cursos Extracurriculares
+                    Jornada
                   </div>
                   <div class="col s9 offset-s1">
-                    {{input value=model.curriculo.extra}}
+                    {{input value=model.newVaga.jornada}}
+                  </div>
+                </div>
+                <div class="input-field col s10 bord-top">
+                  <div class="col s2 grey-text in-label">
+                    Requisitos
+                  </div>
+                  <div class="col s9 offset-s1">
+                    {{input value=model.newVaga.requisitos}}
                   </div>
                 </div>
                 <div class="input-field col s10">
                   <div class="col s2 grey-text in-label">
-                    Escolaridade
+                    Descrição
                   </div>
                   <div class="col s9 offset-s1">
-                    {{input value=model.curriculo.escolaridade}}
+                    {{input value=model.newVaga.descricao}}
+                  </div>
+                </div>
+                <div class="input-field col s10">
+                  <div class="col s2 grey-text in-label">
+                    Número de Vagas
+                  </div>
+                  <div class="col s9 offset-s1">
+                    {{input valuemodel.newVaga.num}}
+                  </div>
+                </div>
+                <div class="input-field col s10">
+                  <div class="col s2 grey-text in-label">
+                    Salário Inicial
+                  </div>
+                  <div class="col s9 offset-s1">
+                    {{input value=model.newVaga.salario}}
                   </div>
                 </div>
 
-                <button {{action "curriculo"}} class="btn-large blue lighten-2 col s12 m3 right" style="margin-top: 2%; margin-bottom:3%; margin-right:5%;">
+                <button {{action "novaVaga"}} class="btn-large blue lighten-2 col s12 m3 right" style="margin-top: 2%; margin-bottom:3%; margin-right:2.5%;">
                   Enviar
                 </button>
 
@@ -187,7 +186,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="assets/images/cityNoLights.jpg" alt="image"/></div>
+    <div class="parallax"><img src="assets/images/cityLights.jpg" alt="image"/></div>
 
   </div>
 </div>
