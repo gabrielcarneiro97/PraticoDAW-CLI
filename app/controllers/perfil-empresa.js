@@ -39,7 +39,7 @@ export default Ember.Controller.extend({
       var vaga = this.model.newVaga;
       var obj = {};
 
-      obj.empresa = this.model.name;
+      obj.empresa = this.model.razaoSocial;
       obj.titulo = vaga.titulo;
       obj.jornadaDeTrabalho = vaga.jornada;
       obj.requisitos = vaga.requisitos;
@@ -55,8 +55,8 @@ export default Ember.Controller.extend({
           withCredentials: true
         },
         statusCode  : {
-          200 : function() {
-            Materialize.toast("Vaga sucesso", 2000);
+          202 : function() {
+            Materialize.toast("Vaga cadastrada com sucesso", 2000);
           }
         }
       });
